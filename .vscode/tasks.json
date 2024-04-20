@@ -17,6 +17,7 @@
                 "-o",
                 "'${workspaceFolder}/problem.exe'",
                 "'${file}'",
+                "--debug"
             ],
             "group": {
                 "kind": "build",

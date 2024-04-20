@@ -1,1 +1,14 @@
 unordered_set: https://cpprefjp.github.io/reference/unordered_set/unordered_set.html
+
+#最大，最小取得
+// xはvector or array or 配列
+int min = *min_element(begin(x), end(x));
+int max = *max_element(begin(x), end(x));
+
+#値を検索して削除する．
+// 最大値がなくなるまで繰り返し削除
+auto itr = find(begin(a), end(a), delete_value);
+while (itr != end(a)) {
+    a.erase(itr);
+    itr = find(begin(a), end(a), delete_value);
+}
