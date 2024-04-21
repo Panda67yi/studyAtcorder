@@ -8,25 +8,28 @@ using Graph = vector<vector<int>>;
 
 int main() {
   int N;
-  cin >> N ;
-  vector<int> a(N);
-  int count = 0;
+  int Y;
+  cin >> N;
+  cin >> Y;
+  unordered_set<int> sum;
+  int tmpsum;
+  int a = -1, b = -1, c = -1;
 
-  rep(i,N){
-    cin >> a.at(i);
-  }
-
-  while (!a.empty()){
-    auto max_itr = max_element(begin(a), end(a));
-    int max_value = *max_itr;
-    // 最大値がなくなるまで繰り返し削除
-    auto itr = find(begin(a), end(a), max_value);
-    while (itr != end(a)) {
-      a.erase(itr);
-      itr = find(begin(a), end(a), max_value);
+  rep(i,N+1){
+    rep(j,N+1-i){
+      tmpsum = 10000*i+5000*j+1000*(N-i-j);
+      sum.insert(tmpsum);
+      if(tmpsum == Y) { 
+        a = i;
+        b = j;
+        c = N-i-j;
+      }
     }
-    count++;
+  }
+  if (sum.count(Y)){
+    cout << a << " " << b << " " << c << endl;
+  }else{
+    cout << "-1 -1 -1" << endl;
   }
   
-  cout << count << endl;
 }

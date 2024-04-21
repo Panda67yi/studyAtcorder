@@ -1,4 +1,15 @@
+#map作成高速化
 unordered_set: https://cpprefjp.github.io/reference/unordered_set/unordered_set.html
+unordered_set<int> S; 
+rep(i,N){
+    rep(j,M){
+      rep(k,L){
+        sum = A[i]+B[j]+C[k];
+        S.insert(sum);
+      }
+    }
+}
+
 
 #最大，最小取得
 // xはvector or array or 配列

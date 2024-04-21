@@ -1,0 +1,67 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i, n) for (int i = 0; i < (int)(n); i++)
+#define rep1(i, n) for (int i = 1; i < (int)(n+1); i++)
+using ll = long long;
+using P = pair<int,int>;
+using Graph = vector<vector<int>>;
+
+int main() {
+  string S;
+  cin >> S;
+
+  string a = "dream";
+  string b = "dreamer";
+  string c = "erase";
+  string d = "eraser";
+  string ad = "dreameraser";
+  string ac = "dreamerase";
+
+  int count = 0;
+  bool flag = true;
+
+  while(!S.empty()){
+    count = 0;
+    size_t pos_ad = S.find(ad);
+    if (pos_ad != string::npos) { // 文字列が見つかった場合
+      S.erase(pos_ad, ad.length());
+      continue;
+    }
+    size_t pos_ac = S.find(ac);
+    if (pos_ac != string::npos) { // 文字列が見つかった場合
+      S.erase(pos_ac, ac.length());
+      continue;
+    }
+    size_t pos_b = S.find(b);
+    if (pos_b != string::npos) { // 文字列が見つかった場合
+      S.erase(pos_b, b.length());
+      continue;
+    }
+    size_t pos_d = S.find(d);
+    if (pos_d != string::npos) { // 文字列が見つかった場合
+      S.erase(pos_d, d.length());
+      continue;
+    }
+    size_t pos_a = S.find(a);
+    if (pos_a != string::npos) { // 文字列が見つかった場合
+      S.erase(pos_a, a.length());
+      count++;
+    }
+    size_t pos_c = S.find(c);
+    if (pos_c != string::npos) { // 文字列が見つかった場合
+      S.erase(pos_c, c.length());
+      count++;
+    }
+    if (count == 0){
+      flag = false;
+      break;
+    }
+  }
+  if (flag){
+    cout << "YES" << endl;
+  }else {
+    cout << "NO" << endl;
+  }
+
+  return 0;
+} 
