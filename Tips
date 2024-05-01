@@ -10,7 +10,6 @@ rep(i,N){
     }
 }
 
-
 #最大，最小取得
 // xはvector or array or 配列
 int min = *min_element(begin(x), end(x));
@@ -23,3 +22,9 @@ while (itr != end(a)) {
     a.erase(itr);
     itr = find(begin(a), end(a), delete_value);
 }
+
+#文字列からある文字を削除
+S.erase(std::remove(S.begin(), S.end(), search_char), S.end());
+
+#文字列からある文字の数を求める
+count = std::count(S.begin(), S.end(), search_char);
